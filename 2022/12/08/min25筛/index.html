@@ -19,16 +19,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="min25筛作用：快速求某些积性函数f(x)的前缀和对f(x)的要求：$$要求f(x)为积性函数，且：\1：能快速求出质数处的前缀和\2：能快速求出f(p^c)的值$$ 由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）比如：$$令F(x)为f(x)的前缀和，即F(x)&#x3D;\sum_{i&#x3D;1}^{n}f(i)\若f(x">
+    <meta name="description" content="min25筛 作用：快速求某些积性函数f(x)的前缀和 对f(x)的要求： \[ \begin{aligned} 要求f(x)为积性函数，且： \\1：能快速求出质数处的前缀和 \\2：能快速求出f(p^c)的值 \end{aligned} \] 由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出） 比如： \[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="min25筛">
 <meta property="og:url" content="http://example.com/2022/12/08/min25%E7%AD%9B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="min25筛作用：快速求某些积性函数f(x)的前缀和对f(x)的要求：$$要求f(x)为积性函数，且：\1：能快速求出质数处的前缀和\2：能快速求出f(p^c)的值$$ 由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）比如：$$令F(x)为f(x)的前缀和，即F(x)&#x3D;\sum_{i&#x3D;1}^{n}f(i)\若f(x">
+<meta property="og:description" content="min25筛 作用：快速求某些积性函数f(x)的前缀和 对f(x)的要求： \[ \begin{aligned} 要求f(x)为积性函数，且： \\1：能快速求出质数处的前缀和 \\2：能快速求出f(p^c)的值 \end{aligned} \] 由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出） 比如： \[">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-12-08T12:28:21.034Z">
-<meta property="article:modified_time" content="2022-12-10T08:02:45.775Z">
+<meta property="article:modified_time" content="2022-12-10T10:19:20.163Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="number theory">
 <meta name="twitter:card" content="summary">
 
 
@@ -36,10 +38,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/12/08/min25%E7%AD%9B/","path":"2022/12/08/min25筛/","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/12/08/min25%E7%AD%9B/","path":"2022/12/08/min25筛/","title":"min25筛"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title> | Hexo</title>
+<title>min25筛 | Hexo</title>
   
 
 
@@ -54,7 +56,119 @@
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
-</head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
   <div class="headband"></div>
@@ -106,7 +220,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#min25%E7%AD%9B"><span class="nav-number">1.</span> <span class="nav-text">min25筛</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%B1%82%E6%9F%90%E4%BA%9B%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0f-x-%E7%9A%84%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">作用：快速求某些积性函数f(x)的前缀和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9f-x-%E7%9A%84%E8%A6%81%E6%B1%82%EF%BC%9A"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">对f(x)的要求：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%B1%E4%BA%8E%E8%A6%81%E6%B1%821%EF%BC%8C%E6%95%85%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E8%83%BD%E7%94%A8min25%E7%AD%9B%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8Cf-p-%E9%83%BD%E6%98%AF%E5%85%B3%E4%BA%8Ep%E7%9A%84%E7%AE%80%E5%8D%95%E5%A4%9A%E9%A1%B9%E5%BC%8F%EF%BC%88%E7%AE%80%E5%8D%95%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%89%8D%E7%BC%80%E5%92%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%B1%82%E5%87%BA%EF%BC%89"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%9A"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">复杂度：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">前置知识：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">正式开始：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#part1-%E8%B4%A8%E6%95%B0%E9%83%A8%E5%88%86-%EF%BC%88dp%EF%BC%89"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">part1:质数部分 （dp）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#part2-%E5%8A%A0%E4%B8%8A%E5%90%88%E6%95%B0%E9%83%A8%E5%88%86%E7%9A%84%E8%B4%A1%E7%8C%AE%EF%BC%8C%E6%B1%82%E5%87%BA%E7%AD%94%E6%A1%88"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">part2:加上合数部分的贡献，求出答案</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#min25%E7%AD%9B"><span class="nav-number">1.</span> <span class="nav-text">min25筛</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%BF%AB%E9%80%9F%E6%B1%82%E6%9F%90%E4%BA%9B%E7%A7%AF%E6%80%A7%E5%87%BD%E6%95%B0fx%E7%9A%84%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">作用：快速求某些积性函数f(x)的前缀和</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AF%B9fx%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">对f(x)的要求：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%94%B1%E4%BA%8E%E8%A6%81%E6%B1%821%E6%95%85%E7%BB%9D%E5%A4%A7%E5%A4%9A%E6%95%B0%E8%83%BD%E7%94%A8min25%E7%AD%9B%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8Bfp%E9%83%BD%E6%98%AF%E5%85%B3%E4%BA%8Ep%E7%9A%84%E7%AE%80%E5%8D%95%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%AE%80%E5%8D%95%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E5%89%8D%E7%BC%80%E5%92%8C%E5%8F%AF%E4%BB%A5%E5%BF%AB%E9%80%9F%E6%B1%82%E5%87%BA"><span class="nav-number">1.0.0.0.3.</span> <span class="nav-text">由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.0.0.0.4.</span> <span class="nav-text">复杂度：</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">前置知识：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E5%BC%8F%E5%BC%80%E5%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">正式开始：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#part1%E8%B4%A8%E6%95%B0%E9%83%A8%E5%88%86-dp"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">part1:质数部分 （dp）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#part2%E5%8A%A0%E4%B8%8A%E5%90%88%E6%95%B0%E9%83%A8%E5%88%86%E7%9A%84%E8%B4%A1%E7%8C%AE%E6%B1%82%E5%87%BA%E7%AD%94%E6%A1%88"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">part2:加上合数部分的贡献，求出答案</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -122,6 +236,14 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
       </div>
   </nav>
 </div>
@@ -160,12 +282,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="name" content="min25筛 | Hexo">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          min25筛
         </h1>
 
         <div class="post-meta-container">
@@ -183,7 +305,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-12-10 16:02:45" itemprop="dateModified" datetime="2022-12-10T16:02:45+08:00">2022-12-10</time>
+      <time title="Modified: 2022-12-10 18:19:20" itemprop="dateModified" datetime="2022-12-10T18:19:20+08:00">2022-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">数论</span></a>
+        </span>
     </span>
 
   
@@ -196,25 +327,87 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="min25筛"><a href="#min25筛" class="headerlink" title="min25筛"></a>min25筛</h1><h5 id="作用：快速求某些积性函数f-x-的前缀和"><a href="#作用：快速求某些积性函数f-x-的前缀和" class="headerlink" title="作用：快速求某些积性函数f(x)的前缀和"></a>作用：快速求某些积性函数f(x)的前缀和</h5><h5 id="对f-x-的要求："><a href="#对f-x-的要求：" class="headerlink" title="对f(x)的要求："></a>对f(x)的要求：</h5><p>$$<br>要求f(x)为积性函数，且：<br>\1：能快速求出质数处的前缀和<br>\2：能快速求出f(p^c)的值<br>$$</p>
-<h5 id="由于要求1，故绝大多数能用min25筛的情况下，f-p-都是关于p的简单多项式（简单多项式的前缀和可以快速求出）"><a href="#由于要求1，故绝大多数能用min25筛的情况下，f-p-都是关于p的简单多项式（简单多项式的前缀和可以快速求出）" class="headerlink" title="由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）"></a>由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）</h5><p>比如：<br>$$<br>令F(x)为f(x)的前缀和，即F(x)&#x3D;\sum_{i&#x3D;1}^{n}f(i)<br>\若f(x)&#x3D;x^2,则F(x)&#x3D;\sum_{i&#x3D;1}^{x}i^2&#x3D;\frac{x(x+1)(2x+1)}{6}<br>\若f(x)&#x3D;x^3,则F(x)&#x3D;\sum_{i&#x3D;1}^{x}i^3&#x3D;\frac{x^2(x+1)^2}{4}<br>$$</p>
-<h5 id="复杂度："><a href="#复杂度：" class="headerlink" title="复杂度："></a>复杂度：</h5><p>$$<br>O(\frac{n^{\frac{3}{4}}}{logn})<br>$$</p>
-<h1 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h1><p>1.埃氏筛<br>$$<br>分析一波埃氏筛复杂度：<br>\由素数定理，设cnt(x)表示不大于x的数中有多少个质数，则cnt(x)\sim\frac{x}{lnx}<br>\可知：x是素数的概率为cnt(x)-cnt(x-1)\approx\frac{1}{lnx}<br>\复杂度:O(\sum_{p&lt;&#x3D;N}\left\lfloor \frac{N}{p} \right\rfloor)<br>\\sim \sum_{x&#x3D;2}^{N}\frac{N}{xlnx}<br>\\sim N\sum_{x&#x3D;2}^{N}\frac{1}{xlnx}<br>\我们积分近似一下：<br>\\sum_{x&#x3D;2}^{N}\frac{1}{xlnx}\approx \int_{2}^{N}\frac{1}{xlnx}dx<br>\设u&#x3D;lnx，有\int\frac{1}{xlnx}dx&#x3D;\int\frac{1}{u}du&#x3D;lnu+C&#x3D;ln(lnx)+C<br>\所以埃氏筛的复杂度为O(Nlog(logN))<br>$$<br>2.线性筛</p>
-<p>复杂度线性     if(i%p[j]&#x3D;&#x3D;0)break;</p>
+        <h1 id="min25筛">min25筛</h1>
+<h5 id="作用快速求某些积性函数fx的前缀和">作用：快速求某些积性函数f(x)的前缀和</h5>
+<h5 id="对fx的要求">对f(x)的要求：</h5>
+<p><span class="math display">\[
+\begin{aligned}
+要求f(x)为积性函数，且：
+\\1：能快速求出质数处的前缀和
+\\2：能快速求出f(p^c)的值
+\end{aligned}
+\]</span></p>
+<h5 id="由于要求1故绝大多数能用min25筛的情况下fp都是关于p的简单多项式简单多项式的前缀和可以快速求出">由于要求1，故绝大多数能用min25筛的情况下，f(p)都是关于p的简单多项式（简单多项式的前缀和可以快速求出）</h5>
+<p>比如： <span class="math display">\[
+令F(x)为f(x)的前缀和，即F(x)=\sum_{i=1}^{n}f(i)
+\\若f(x)=x^2,则F(x)=\sum_{i=1}^{x}i^2=\frac{x(x+1)(2x+1)}{6}
+\\若f(x)=x^3,则F(x)=\sum_{i=1}^{x}i^3=\frac{x^2(x+1)^2}{4}
+\]</span></p>
+<h5 id="复杂度">复杂度：</h5>
+<p><span class="math display">\[
+O(\frac{n^{\frac{3}{4}}}{logn})
+\]</span></p>
+<h1 id="前置知识">前置知识：</h1>
+<p>1.埃氏筛 <span class="math display">\[
+分析一波埃氏筛复杂度：
+\\由素数定理，设cnt(x)表示不大于x的数中有多少个质数，则cnt(x)\sim\frac{x}{lnx}
+\\可知：x是素数的概率为cnt(x)-cnt(x-1)\approx\frac{1}{lnx}
+\\复杂度:O(\sum_{p&lt;=N}\left\lfloor \frac{N}{p} \right\rfloor)
+\\\sim \sum_{x=2}^{N}\frac{N}{xlnx}
+\\\sim N\sum_{x=2}^{N}\frac{1}{xlnx}
+\\我们积分近似一下：
+\\\sum_{x=2}^{N}\frac{1}{xlnx}\approx \int_{2}^{N}\frac{1}{xlnx}dx
+\\设u=lnx，有\int\frac{1}{xlnx}dx=\int\frac{1}{u}du=lnu+C=ln(lnx)+C
+\\所以埃氏筛的复杂度为O(Nlog(logN))
+\]</span> 2.线性筛</p>
+<p>复杂度线性 if(i%p[j]==0)break;</p>
 <p>i是p[j]的倍数时，i*p[j+1]这个合数肯定也能被p[j]筛掉，所以不用继续筛下去了</p>
 <p>（因为i中含有p[j]，而p[j]肯定小于p[j+1]）</p>
-<h1 id="正式开始："><a href="#正式开始：" class="headerlink" title="正式开始："></a>正式开始：</h1><p>$$<br>求\sum_{i&#x3D;1}^{n}f(i)<br>$$</p>
-<h5 id="part1-质数部分-（dp）"><a href="#part1-质数部分-（dp）" class="headerlink" title="part1:质数部分 （dp）"></a>part1:质数部分 （dp）</h5><p>需要引入  <u>完全积性函数</u>  F(x)，且满足质数处有F(p)&#x3D;f(p)<br>$$<br>令p[j]表示第j个质数<br>\g(n,j)&#x3D;\sum_{i&#x3D;1}^{n}F(i)[i是质数\ \ ||\ \ i的最小质因子&gt;p[j]]<br>\质数部分的和即为g(n,\sqrt n)<br>\因为n以内，没有最小质因子&gt;\sqrt n的合数<br>$$<br>g(n,j)，如何状态转移？</p>
+<h1 id="正式开始">正式开始：</h1>
+<p><span class="math display">\[
+求\sum_{i=1}^{n}f(i)
+\]</span></p>
+<h5 id="part1质数部分-dp">part1:质数部分 （dp）</h5>
+<p>需要引入 <u>完全积性函数</u> F(x)，且满足质数处有F(p)=f(p) <span class="math display">\[
+令p[j]表示第j个质数
+\\g(n,j)=\sum_{i=1}^{n}F(i)[i是质数\ \ ||\ \ i的最小质因子&gt;p[j]]
+\\质数部分的和即为g(n,\sqrt n)
+\\因为n以内，没有最小质因子&gt;\sqrt n的合数
+\]</span> g(n,j)，如何状态转移？</p>
 <p>其实就是考虑第j轮埃氏筛，会筛掉哪些数！</p>
-<p>g(30,1) :   1   2   3   <u>4</u>   5   <u>6</u>   7   <u>8</u>   9   <u>10</u>   11   <u>12</u>   13   <u>14</u>   15   <u>16</u>   17   <u>18</u>   19   <u>20</u>   21   <u>22</u>   23   <u>24</u>   25   <u>26</u>   27   <u>28</u>   29   <u>30</u></p>
-<p>g(30,2) :   1   2   3   <del>4</del>   5   <del>6</del>   7   <del>8</del>   <u>9</u>   <del>10</del>   11   <del>12</del>   13   <del>14</del>   <u>15</u>   <del>16</del>   17   <del>18</del>   19   <del>20</del>   <u>21</u>   <del>22</del>   23   <del>24</del>   25   <del>26</del>   <u>27</u>   <del>28</del>   29   <del>30</del></p>
-<p>g(30,3) :   1   2   3   <del>4</del>   5   <del>6</del>   7   <del>8</del>   <del>9</del>   <del>10</del>   11   <del>12</del>   13   <del>14</del>   <del>15</del>   <del>16</del>   17   <del>18</del>   19   <del>20</del>   <del>21</del>   <del>22</del>   23   <del>24</del>   <u>25</u>   <del>26</del>   <del>27</del>   <del>28</del>   29   <del>30</del></p>
+<p>g(30,1) : 1 2 3 <u>4</u> 5 <u>6</u> 7 <u>8</u> 9 <u>10</u> 11 <u>12</u> 13 <u>14</u> 15 <u>16</u> 17 <u>18</u> 19 <u>20</u> 21 <u>22</u> 23 <u>24</u> 25 <u>26</u> 27 <u>28</u> 29 <u>30</u></p>
+<p>g(30,2) : 1 2 3 <del>4</del> 5 <del>6</del> 7 <del>8</del> <u>9</u> <del>10</del> 11 <del>12</del> 13 <del>14</del> <u>15</u> <del>16</del> 17 <del>18</del> 19 <del>20</del> <u>21</u> <del>22</del> 23 <del>24</del> 25 <del>26</del> <u>27</u> <del>28</del> 29 <del>30</del></p>
+<p>g(30,3) : 1 2 3 <del>4</del> 5 <del>6</del> 7 <del>8</del> <del>9</del> <del>10</del> 11 <del>12</del> 13 <del>14</del> <del>15</del> <del>16</del> 17 <del>18</del> 19 <del>20</del> <del>21</del> <del>22</del> 23 <del>24</del> <u>25</u> <del>26</del> <del>27</del> <del>28</del> 29 <del>30</del></p>
 <p>g(n,j-1) -&gt; g(n,j)，减小的值为最小质因子为p[j]的合数的值！</p>
-<p>设被筛掉的合数为x,有:<br>$$<br>F(x)&#x3D;F(p[j])*F(\frac{x}{p[j]})\ \ \ 用到的是{\color{red}完全积性函数}的性质<br>$$</p>
-<p>$$<br>可得出dp转移方程,g(n,j)&#x3D;\left {\begin{matrix}<br>g(n,j-1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 当p[j]^2&gt;n<br>\g(n,j-1)-F(p[j])*{\LARGE (}g(\left \lfloor \frac{n}{p[j]}  \right \rfloor,j-1)-<br>\sum_{i&#x3D;1}^{j-1}F(p[j]) {\LARGE )}\ \ \ \ 当p[j]^2 \le n<br>\end{matrix}\right.<br>$$</p>
-<p>$$<br>这部分也是min25筛的复杂度瓶颈，即O(\frac{n^{\frac{3}{4}}}{logn})<br>\\color{red}注意以上的F(x)是我们引入的完全积性函数，仅满足在质数处和f(x)相同<br>\g(n,0)是递推起点，即F(x)在质数处的前缀和，这个需要能够快速求出（即之前所说的要求1）<br>\第二部分要用到的，是g(…,\sqrt n),即f(x)在质数处的前缀和<br>$$</p>
-<h5 id="part2-加上合数部分的贡献，求出答案"><a href="#part2-加上合数部分的贡献，求出答案" class="headerlink" title="part2:加上合数部分的贡献，求出答案"></a>part2:加上合数部分的贡献，求出答案</h5><p>质数处的和已经在part1求出。</p>
-<p>容易想到，可以通过<u>枚举最小质因子的幂次</u>的方式，来统计合数部分的贡献（且<u>只用到积性函数的性质</u>就够了）<br>$$<br>具体地，令S(n,j)&#x3D;\sum_{i&#x3D;1}^{n}f(i)[i的最小质因子&gt;p[j]]<br>\则有S(n,j)&#x3D;g(n,\sqrt n)-\sum_{i&#x3D;1}^{j-1}f(p[i])\ \ \<br>+\ \ \sum_{k&#x3D;j+1}^{p[k]^2 \le n}\sum_{e&#x3D;1}^{p[k]^e\le n}f(p[k]^e)*<br>{\LARGE (}S(\left \lfloor \frac{n}{p[k]^e} \right \rfloor,k)+[e&gt;1]{\LARGE )}<br>$$<br>再简单解释一下：<br>$$<br>质数部分对S(n,j)的贡献即为g(n,\sqrt n)-\sum_{i&#x3D;1}^{j-1}f(p[i])<br>\合数部分，考虑任何正整数n都能表示成n&#x3D;\prod_{k}^{} p_k^{c_{k}}<br>\我们枚举最小质因子p[k]，然后就转化成了子问题。由于积性函数的性质，f和S直接相乘即可（因为我们保证f和S是互质的）<br>\ [e&gt;1]的意义：这个数就是质数的幂次(e&#x3D;1不能算，因为统计的是合数的贡献)<br>$$</p>
+<p>设被筛掉的合数为x,有: <span class="math display">\[
+F(x)=F(p[j])*F(\frac{x}{p[j]})\ \ \ 用到的是{\color{red}完全积性函数}的性质
+\]</span></p>
+<p><span class="math display">\[
+可得出dp转移方程,g(n,j)=\left \{\begin{matrix}
+g(n,j-1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 当p[j]^2&gt;n
+\\g(n,j-1)-F(p[j])*{\LARGE (}g(\left \lfloor \frac{n}{p[j]}  \right \rfloor,j-1)-
+\sum_{i=1}^{j-1}F(p[j]) {\LARGE )}\ \ \ \ 当p[j]^2 \le n
+\end{matrix}\right.
+\]</span></p>
+<p><span class="math display">\[
+这部分也是min25筛的复杂度瓶颈，即O(\frac{n^{\frac{3}{4}}}{logn})
+\\\color{red}注意以上的F(x)是我们引入的完全积性函数，仅满足在质数处和f(x)相同
+\\g(n,0)是递推起点，即F(x)在质数处的前缀和，这个需要能够快速求出（即之前所说的要求1）
+\\第二部分要用到的，是g(...,\sqrt n),即f(x)在质数处的前缀和
+\]</span></p>
+<h5 id="part2加上合数部分的贡献求出答案">part2:加上合数部分的贡献，求出答案</h5>
+<p>质数处的和已经在part1求出。</p>
+<p>容易想到，可以通过<u>枚举最小质因子的幂次</u>的方式，来统计合数部分的贡献（且<u>只用到积性函数的性质</u>就够了） <span class="math display">\[
+具体地，令S(n,j)=\sum_{i=1}^{n}f(i)[i的最小质因子&gt;p[j]]
+\\则有S(n,j)=g(n,\sqrt n)-\sum_{i=1}^{j-1}f(p[i])\ \ \ 
++\ \ \sum_{k=j+1}^{p[k]^2 \le n}\sum_{e=1}^{p[k]^e\le n}f(p[k]^e)*
+{\LARGE (}S(\left \lfloor \frac{n}{p[k]^e} \right \rfloor,k)+[e&gt;1]{\LARGE )}
+\]</span> 再简单解释一下： <span class="math display">\[
+质数部分对S(n,j)的贡献即为g(n,\sqrt n)-\sum_{i=1}^{j-1}f(p[i])
+\\合数部分，考虑任何正整数n都能表示成n=\prod_{k}^{} p_k^{c_{k}}
+\\我们枚举最小质因子p[k]，然后就转化成了子问题。由于积性函数的性质，f和S直接相乘即可（因为我们保证f和S是互质的）
+\\ [e&gt;1]的意义：这个数就是质数的幂次(e=1不能算，因为统计的是合数的贡献)
+\]</span></p>
 
     </div>
 
@@ -223,6 +416,10 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/math/" rel="tag"># math</a>
+              <a href="/tags/number-theory/" rel="tag"># number theory</a>
+          </div>
 
         
 
@@ -294,6 +491,12 @@
   
 
 
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
